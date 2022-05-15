@@ -1,0 +1,45 @@
+.portfolio {
+    padding-top: 94px;
+    padding-bottom: 94px;
+}
+
+.filter-list {
+    display: flex;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+.filter-list__item:not(:last-child) {
+    margin-right: 8px;
+}
+
+.filter-list__button {
+    display: inline-block;
+    padding: 6px 22px;
+    min-height: 38px;
+    border-width: 0;
+    border-radius: 4px;
+
+    background-color: $secondary-bg-color;
+    color: $text-title-color;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.63;
+    text-align: center;
+    cursor: pointer;
+
+    transition: background-color $animation-time $cubic,
+        color $animation-time $cubic,
+        box-shadow $animation-time $cubic;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $accent-color;
+        color: $secondary-text-color;
+        box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
+            0px 1px 2px rgba(0, 0, 0, 0.08),
+            0px 2px 2px rgba(0, 0, 0, 0.12);
+    }
+}

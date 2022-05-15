@@ -1,0 +1,30 @@
+.page {
+    background-color: $primary-bg-color;
+    color: $primary-text-color;
+    font-family: Roboto, sans-serif;
+    letter-spacing: 0.03em;
+}
+
+.list {
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section__title {
+    margin-top: 0;
+    margin-bottom: 30px;
+
+    color: $text-title-color;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.17;
+    text-align: center;
+}
