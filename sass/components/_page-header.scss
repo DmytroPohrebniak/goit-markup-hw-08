@@ -16,11 +16,18 @@
 }
 
 .page-header__container {
-    display: flex;
+    display: none;
     align-items: center;
-    width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
+
+    @media screen and (min-width: 768px) {
+        display: flex;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 1200px;
+    }
 }
 
 .main-nav {
@@ -75,12 +82,25 @@
 
 .contacts {
     display: flex;
+    flex-direction: column;
     margin-left: auto;
+
+    @media screen and (min-width:1200px) {
+        flex-direction: row;
+    }
 }
 
 .contacts__item {
-    & + & {
-        margin-left: 50px;
+    @media screen and (min-width: 1200px) {
+        & + & {
+            margin-left: 50px;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .contacts__mail {
+        padding-bottom: 10px;
     }
 }
 
@@ -88,8 +108,6 @@
 .contacts__tel {
     display: flex;
     align-items: center;
-    padding-top: 32px;
-    padding-bottom: 32px;
 
     color: $primary-text-color;
     font-weight: 500;
@@ -104,6 +122,11 @@
     &:focus {
         color: $accent-color;
     }
+
+    @media screen and (min-width:1200px) {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
 }
 
 .contacts__icon {
@@ -116,4 +139,172 @@
         width: 10px;
         height: 16px;
     }
+}
+
+// Mobile menu
+
+.mobile-nav__logo {
+    color: #000000;
+    font-family: Raleway, sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.17;
+    text-decoration: none;
+}
+
+.mobile-nav__logo-accent {
+    color: $accent-color;
+}
+
+.page-header__mobile-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    margin: 0 auto;
+    padding: 0 15px;
+
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+}
+
+.menu-button {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+        fill: $accent-color;
+    }
+}
+
+.page-header__overlay {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: -100%;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    padding-left: 40px;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    background-color: $primary-bg-color;
+
+    transition: top $animation-time $cubic;
+}
+
+.page-header__overlay.is-hidden {
+    top: 0;
+}
+
+.mobile-nav {
+    margin-bottom: auto;
+}
+
+.mobile-nav__close {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+
+    position: absolute;
+    top: 10px;
+    right: -5px;
+    transform: translate(-50%);
+
+    &:hover,
+    &:focus {
+        fill: $accent-color;
+    }
+}
+
+.mobile-nav__item:not(:last-child) {
+    margin-bottom: 32px;
+}
+
+.mobile-nav__link {
+    color: $text-title-color;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 1.18;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+
+    transition: color $animation-time $cubic ;
+
+    &:hover,
+    &:focus {
+        color: $accent-color;
+    }
+}
+
+.mobile-contacts {
+    padding-bottom: 64px;
+}
+.mobile-contacts__item:not(:last-child) {
+    margin-bottom: 32px;
+}
+
+
+.mobile-contacts__mail,
+.mobile-contacts__tel {
+    color: $primary-text-color;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+
+    transition: color $animation-time $cubic;
+
+    &:hover,
+    &:focus {
+        font-size: 34px;
+        line-height: 1.18;
+        color: $accent-color;
+    }
+}
+
+.mobile-contacts__icon {
+    width: 16px;
+    height: 12px;
+    margin-right: 10px;
+    fill: currentColor;
+
+    &--size {
+        width: 10px;
+        height: 16px;
+    }
+}
+
+.mobile-social {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.mobile-social__item {
+    &:not(:nth-child(1)) {
+        padding-left: 10px;
+    }
+    &:not(:last-child){
+    padding-right: 10px;
+    border-right: 1px solid rgba(33, 33, 33, 0.2);
+    }
+}
+
+.mobile-social__link {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.22;
+    letter-spacing: 0.02em;
+    color: $accent-color;
+    text-decoration: none;
 }
