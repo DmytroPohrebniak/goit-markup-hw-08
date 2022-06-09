@@ -109,7 +109,8 @@
     transition: background-color $animation-time $cubic,
         color $animation-time $cubic;
 
-    &:hover {
+    &:hover,
+    &:focus {
             background-color: $accent-color;
             color: $primary-bg-color;
         }
